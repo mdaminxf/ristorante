@@ -156,21 +156,121 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Reservation Form */}
-        <section
-          id="reservations"
-          className="relative bg-[url('https://scdn.aro.ie/Sites/50/imperialhotels2022/uploads/images/FullLengthImages/Large/SB12129735_Bedford_Hotel_Interior__Reception._4500x3000.jpg')] bg-cover bg-center py-20 px-4"
+ {/* Reservation Form */}
+<section
+  id="reservations"
+  className="relative bg-[url('https://scdn.aro.ie/Sites/50/imperialhotels2022/uploads/images/FullLengthImages/Large/SB12129735_Bedford_Hotel_Interior__Reception._4500x3000.jpg')] bg-cover bg-center py-20 px-4"
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/70"></div>
+
+  <div className="relative max-w-3xl mx-auto text-white">
+    <h2 className="text-4xl font-bold text-center mb-8">Make a Reservation</h2>
+    <form className="grid gap-6 bg-white/95 dark:bg-gray-800 shadow-lg p-8 rounded-xl text-gray-800 dark:text-gray-100">
+      
+      {/* Name + Email */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input
+          type="text"
+          placeholder="Full Name *"
+          className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full dark:bg-gray-900"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email Address *"
+          className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full dark:bg-gray-900"
+          required
+        />
+      </div>
+
+      {/* Phone + Guests */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full dark:bg-gray-900"
+        />
+        <input
+          type="number"
+          placeholder="Number of Guests *"
+          min="1"
+          className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full dark:bg-gray-900"
+          required
+        />
+      </div>
+
+      {/* Date + Time */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input
+          type="date"
+          className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full dark:bg-gray-900"
+          required
+        />
+        <input
+          type="time"
+          className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full dark:bg-gray-900"
+          required
+        />
+      </div>
+
+      {/* Occasion */}
+      <div>
+        <label className="block mb-2 font-semibold">Occasion</label>
+        <select
+          className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full dark:bg-gray-900"
         >
-          <div className="absolute inset-0 bg-black/70"></div>
-          <div className="relative max-w-3xl mx-auto text-white">
-            <h2 className="text-4xl font-bold text-center mb-8">Make a Reservation</h2>
-            <form className="grid gap-6 bg-white/95 dark:bg-gray-800 shadow-lg p-8 rounded-xl text-gray-800 dark:text-gray-100">
-              <input type="text" placeholder="Full Name *" className="border p-3 rounded-lg w-full dark:bg-gray-900 dark:border-gray-600" />
-              <input type="email" placeholder="Email *" className="border p-3 rounded-lg w-full dark:bg-gray-900 dark:border-gray-600" />
-              <button className="w-full py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500">Book Table</button>
-            </form>
-          </div>
-        </section>
+          <option>Casual Dining</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Business Meeting</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      {/* Seating Preference */}
+      <div>
+        <p className="font-semibold mb-2">Preferred Seating</p>
+        <div className="flex gap-6">
+          <label className="flex items-center gap-2">
+            <input type="radio" name="seating" value="indoor" className="accent-red-600" />
+            Indoor
+          </label>
+          <label className="flex items-center gap-2">
+            <input type="radio" name="seating" value="outdoor" className="accent-red-600" />
+            Outdoor
+          </label>
+        </div>
+      </div>
+
+      {/* Allergies */}
+      <textarea
+        placeholder="Allergies / Dietary Restrictions"
+        className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full h-20 dark:bg-gray-900"
+      />
+
+      {/* Special Requests */}
+      <textarea
+        placeholder="Special Requests"
+        className="border border-gray-300 dark:border-gray-600 p-3 rounded-lg w-full h-20 dark:bg-gray-900"
+      />
+
+      {/* Newsletter */}
+      <label className="flex items-center gap-2">
+        <input type="checkbox" className="accent-red-600" />
+        Subscribe to our newsletter
+      </label>
+
+      <button
+        type="submit"
+        className="w-full py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500 transition duration-300"
+      >
+        Book Table
+      </button>
+    </form>
+  </div>
+</section>
+
 
         {/* Contact Section */}
         <section id="contact" className="bg-gray-50 dark:bg-gray-800 px-6 py-20 transition">
