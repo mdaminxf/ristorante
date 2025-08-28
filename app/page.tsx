@@ -54,39 +54,25 @@ export default function Home() {
           <p className="text-xl mb-6">Authentic Italian Cuisine with Passion</p>
 
           {/* Desktop Buttons */}
-          <div className="hidden md:block">
-            <div className="space-x-4">
+          <div className="">
+            <div className="">
               <a
                 href="#menu"
-                className="px-6 py-3 bg-red-600 hover:bg-red-500 rounded text-white font-semibold"
+                className="px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-semibold"
               >
                 View Our Menu
               </a>
               <a
                 href="#reservations"
-                className="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 rounded text-black font-semibold"
+                className="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold"
               >
                 Make a Reservation
               </a>
             </div>
           </div>
+        
         </div>
 
-        {/* Mobile Buttons at Bottom */}
-        <div className="md:hidden absolute bottom-6 w-full flex justify-center space-x-4 px-4">
-          <a
-            href="#menu"
-            className="flex-1 text-center px-4 py-3 bg-red-600 hover:bg-red-500 rounded text-white font-semibold"
-          >
-            View Menu
-          </a>
-          <a
-            href="#reservations"
-            className="flex-1 text-center px-4 py-3 bg-yellow-400 hover:bg-yellow-300 rounded text-black font-semibold"
-          >
-            Reserve
-          </a>
-        </div>
       </section>
 
       {/* Menu Section */}
