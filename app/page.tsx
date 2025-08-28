@@ -28,7 +28,12 @@ export default function Home() {
 
             {/* Theme Toggle + Mobile Hamburger */}
             <div className="flex items-center space-x-4">
-              
+            <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+              >
+                {darkMode ? "🌙" : "☀️"}
+              </button>
               <button
                 className="md:hidden flex flex-col space-y-1"
                 onClick={() => setIsOpen(!isOpen)}
