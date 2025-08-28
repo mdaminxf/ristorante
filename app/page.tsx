@@ -1,53 +1,60 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
       {/* Navbar */}
       <header className="fixed top-0 w-full bg-white shadow z-50">
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           <h1 className="text-2xl font-bold text-red-700">Bella Vita</h1>
+
+          {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-8 font-medium">
-            <li>
-              <a href="#home" className="hover:text-red-600">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#menu" className="hover:text-red-600">
-                Menu
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-red-600">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#reservations" className="hover:text-red-600">
-                Reservations
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-red-600">
-                Contact
-              </a>
-            </li>
+            <li><a href="#home" className="hover:text-red-600">Home</a></li>
+            <li><a href="#menu" className="hover:text-red-600">Menu</a></li>
+            <li><a href="#about" className="hover:text-red-600">About</a></li>
+            <li><a href="#reservations" className="hover:text-red-600">Reservations</a></li>
+            <li><a href="#contact" className="hover:text-red-600">Contact</a></li>
           </ul>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden flex flex-col space-y-1"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <span className="w-6 h-0.5 bg-black"></span>
+            <span className="w-6 h-0.5 bg-black"></span>
+            <span className="w-6 h-0.5 bg-black"></span>
+          </button>
         </nav>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden bg-white shadow px-6 py-4 space-y-4">
+            <a href="#home" className="block hover:text-red-600">Home</a>
+            <a href="#menu" className="block hover:text-red-600">Menu</a>
+            <a href="#about" className="block hover:text-red-600">About</a>
+            <a href="#reservations" className="block hover:text-red-600">Reservations</a>
+            <a href="#contact" className="block hover:text-red-600">Contact</a>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
       <section
         id="home"
-        className="h-screen bg-[url('https://images.unsplash.com/photo-1600891964092-4316c288032e')] bg-cover bg-center "
+        className="h-screen bg-[url('https://images.unsplash.com/photo-1600891964092-4316c288032e')] bg-cover bg-center relative"
       >
-        <div className="bg-black/60 p-10 rounded-lg text-center text-white w-[100%] h-[100vh] flex items-center justify-center">
-          <center>
-            <h2 className="text-5xl font-bold mb-4">Bella Vita Ristorante</h2>
-            <p className="text-xl mb-6">
-              Authentic Italian Cuisine with Passion
-            </p>
+        <div className="bg-black/60 w-full h-full flex flex-col items-center justify-center text-center text-white px-4">
+          <h2 className="text-5xl font-bold mb-4">Bella Vita Ristorante</h2>
+          <p className="text-xl mb-6">Authentic Italian Cuisine with Passion</p>
+
+          {/* Desktop Buttons */}
+          <div className="hidden md:block">
             <div className="space-x-4">
               <a
                 href="#menu"
@@ -62,7 +69,23 @@ export default function Home() {
                 Make a Reservation
               </a>
             </div>
-          </center>
+          </div>
+        </div>
+
+        {/* Mobile Buttons at Bottom */}
+        <div className="md:hidden absolute bottom-6 w-full flex justify-center space-x-4 px-4">
+          <a
+            href="#menu"
+            className="flex-1 text-center px-4 py-3 bg-red-600 hover:bg-red-500 rounded text-white font-semibold"
+          >
+            View Menu
+          </a>
+          <a
+            href="#reservations"
+            className="flex-1 text-center px-4 py-3 bg-yellow-400 hover:bg-yellow-300 rounded text-black font-semibold"
+          >
+            Reserve
+          </a>
         </div>
       </section>
 
@@ -74,6 +97,7 @@ export default function Home() {
           ingredients and traditional recipes passed down through generations.
         </p>
 
+        {/* Menu Items */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Italian Items */}
           <div className="border rounded-lg overflow-hidden shadow hover:shadow-md">
@@ -86,8 +110,7 @@ export default function Home() {
               <h3 className="text-xl font-bold">Bruschetta Classica</h3>
               <p className="text-red-600 font-semibold">$12.00</p>
               <p className="text-gray-600 mt-2">
-                Fresh tomatoes, basil, garlic, and olive oil on toasted artisan
-                bread.
+                Fresh tomatoes, basil, garlic, and olive oil on toasted artisan bread.
               </p>
               <span className="inline-block mt-2 text-sm text-yellow-600">
                 ⭐ 4.8 (24 reviews) · Popular
@@ -105,8 +128,7 @@ export default function Home() {
               <h3 className="text-xl font-bold">Antipasto Misto</h3>
               <p className="text-red-600 font-semibold">$18.00</p>
               <p className="text-gray-600 mt-2">
-                Selection of cured meats, cheeses, olives, and marinated
-                vegetables.
+                Selection of cured meats, cheeses, olives, and marinated vegetables.
               </p>
               <span className="inline-block mt-2 text-sm text-green-600">
                 ⭐ 4.7 (31 reviews) · Chef&apos;s Choice
@@ -147,7 +169,7 @@ export default function Home() {
 
           <div className="border rounded-lg overflow-hidden shadow hover:shadow-md">
             <img
-              src="https://tse4.mm.bing.net/th/id/OIP.h0yCl-V_eOYE_q1FiFhy3gHaEZ?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3"
+              src="https://tse4.mm.bing.net/th/id/OIP.h0yCl-V_eOYE_q1FiFhy3gHaEZ"
               alt="Moqueca de Peixe"
               className="w-full h-48 object-cover"
             />
@@ -155,8 +177,7 @@ export default function Home() {
               <h3 className="text-xl font-bold">Moqueca de Peixe</h3>
               <p className="text-red-600 font-semibold">$28.00</p>
               <p className="text-gray-600 mt-2">
-                Brazilian fish stew cooked with coconut milk, peppers, and
-                cilantro.
+                Brazilian fish stew cooked with coconut milk, peppers, and cilantro.
               </p>
             </div>
           </div>
@@ -178,28 +199,13 @@ export default function Home() {
           <div>
             <h2 className="text-4xl font-bold mb-6">Our Story</h2>
             <p className="text-lg text-gray-700 mb-6">
-              Welcome to Bella Vita, where authentic Italian traditions come
-              alive in every dish. Founded in 1985 by the Rossi family, our
-              restaurant has been a cornerstone of Italian hospitality, bringing
-              the warmth and flavors of Italy to your table.
+              Welcome to Bella Vita, where authentic Italian traditions come alive in every dish. Founded in 1985 by the Rossi family, our restaurant has been a cornerstone of Italian hospitality, bringing the warmth and flavors of Italy to your table.
             </p>
             <div className="grid grid-cols-2 gap-6">
-              <div>
-                <p className="text-3xl font-bold text-red-600">40+</p>
-                <p className="text-gray-600">Years of Excellence</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-red-600">50k+</p>
-                <p className="text-gray-600">Happy Customers</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-red-600">15+</p>
-                <p className="text-gray-600">Culinary Awards</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-red-600">4.9</p>
-                <p className="text-gray-600">Average Rating</p>
-              </div>
+              <div><p className="text-3xl font-bold text-red-600">40+</p><p className="text-gray-600">Years of Excellence</p></div>
+              <div><p className="text-3xl font-bold text-red-600">50k+</p><p className="text-gray-600">Happy Customers</p></div>
+              <div><p className="text-3xl font-bold text-red-600">15+</p><p className="text-gray-600">Culinary Awards</p></div>
+              <div><p className="text-3xl font-bold text-red-600">4.9</p><p className="text-gray-600">Average Rating</p></div>
             </div>
           </div>
           <img
@@ -212,40 +218,16 @@ export default function Home() {
 
       {/* Reservation Form */}
       <section id="reservations" className="px-6 py-20 max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-8">
-          Make a Reservation
-        </h2>
+        <h2 className="text-4xl font-bold text-center mb-8">Make a Reservation</h2>
         <form className="grid gap-6 bg-white shadow p-8 rounded-lg">
-          <input
-            type="text"
-            placeholder="Full Name *"
-            className="border p-3 rounded w-full"
-          />
-          <input
-            type="email"
-            placeholder="Email Address *"
-            className="border p-3 rounded w-full"
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            className="border p-3 rounded w-full"
-          />
-          <input
-            type="number"
-            placeholder="Number of Guests *"
-            className="border p-3 rounded w-full"
-          />
+          <input type="text" placeholder="Full Name *" className="border p-3 rounded w-full" />
+          <input type="email" placeholder="Email Address *" className="border p-3 rounded w-full" />
+          <input type="tel" placeholder="Phone Number" className="border p-3 rounded w-full" />
+          <input type="number" placeholder="Number of Guests *" className="border p-3 rounded w-full" />
           <input type="date" className="border p-3 rounded w-full" />
           <input type="time" className="border p-3 rounded w-full" />
-          <textarea
-            placeholder="Special Requests"
-            className="border p-3 rounded w-full"
-          />
-          <button
-            type="submit"
-            className="px-6 py-3 bg-red-600 text-white rounded hover:bg-red-500"
-          >
+          <textarea placeholder="Special Requests" className="border p-3 rounded w-full" />
+          <button type="submit" className="px-6 py-3 bg-red-600 text-white rounded hover:bg-red-500">
             Book Table
           </button>
         </form>
@@ -256,9 +238,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
           <div>
             <h2 className="text-4xl font-bold mb-6">Contact Us</h2>
-            <p className="mb-4">
-              📍 123 Little Italy Street, San Francisco, CA 94133, USA
-            </p>
+            <p className="mb-4">📍 123 Little Italy Street, San Francisco, CA 94133, USA</p>
             <p className="mb-2">📞 +1 (555) 123-4567</p>
             <p className="mb-2">✉ info@bellavita.com</p>
             <p className="mb-6">Available daily 11 AM - 11 PM</p>
@@ -268,25 +248,10 @@ export default function Home() {
             <p>Sun: 12 PM - 9 PM</p>
           </div>
           <form className="bg-white p-8 rounded-lg shadow grid gap-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="border p-3 rounded"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="border p-3 rounded"
-            />
-            <input
-              type="text"
-              placeholder="Subject"
-              className="border p-3 rounded"
-            />
-            <textarea
-              placeholder="Your Message"
-              className="border p-3 rounded"
-            />
+            <input type="text" placeholder="Your Name" className="border p-3 rounded" />
+            <input type="email" placeholder="Your Email" className="border p-3 rounded" />
+            <input type="text" placeholder="Subject" className="border p-3 rounded" />
+            <textarea placeholder="Your Message" className="border p-3 rounded" />
             <button className="px-6 py-3 bg-red-600 text-white rounded hover:bg-red-500">
               Send Message
             </button>
@@ -298,42 +263,17 @@ export default function Home() {
       <footer className="bg-gray-900 text-gray-300 px-6 py-8">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold text-white mb-2">
-              Bella Vita Ristorante
-            </h3>
-            <p>
-              Experience the authentic taste of Italy in San Francisco since
-              1985.
-            </p>
+            <h3 className="text-xl font-bold text-white mb-2">Bella Vita Ristorante</h3>
+            <p>Experience the authentic taste of Italy in San Francisco since 1985.</p>
           </div>
           <div>
             <h4 className="font-bold text-white mb-2">Quick Links</h4>
             <ul className="space-y-2">
-              <li>
-                <a href="#menu" className="hover:text-white">
-                  Our Menu
-                </a>
-              </li>
-              <li>
-                <a href="#reservations" className="hover:text-white">
-                  Reservations
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Private Events
-                </a>
-              </li>
+              <li><a href="#menu" className="hover:text-white">Our Menu</a></li>
+              <li><a href="#reservations" className="hover:text-white">Reservations</a></li>
+              <li><a href="#about" className="hover:text-white">About Us</a></li>
+              <li><a href="#contact" className="hover:text-white">Contact</a></li>
+              <li><a href="#" className="hover:text-white">Private Events</a></li>
             </ul>
           </div>
           <div>
@@ -345,16 +285,9 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center text-gray-500 mt-6">
-          © 2025 Bella Vita Ristorante. All rights reserved. |
-          <a href="#" className="hover:text-gray-300">
-            {' '}
-            Privacy Policy{' '}
-          </a>
-          |
-          <a href="#" className="hover:text-gray-300">
-            {' '}
-            Terms of Service
-          </a>
+          © 2025 Bella Vita Ristorante. All rights reserved. | 
+          <a href="#" className="hover:text-gray-300"> Privacy Policy </a> | 
+          <a href="#" className="hover:text-gray-300"> Terms of Service </a>
         </div>
       </footer>
     </div>
