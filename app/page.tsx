@@ -38,7 +38,8 @@ export default function Home() {
             <a href="#home" className="block hover:text-red-600">Home</a>
             <a href="#menu" className="block hover:text-red-600">Menu</a>
             <a href="#about" className="block hover:text-red-600">About</a>
-            <a href="#reservations" className="block hover:text-red-600">Reservations</a>
+            <a href="#reservations" className="block hover:text-red-600">
+              s</a>
             <a href="#contact" className="block hover:text-red-600">Contact</a>
           </div>
         )}
@@ -181,43 +182,117 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="bg-gray-50 px-6 py-20">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-            <p className="text-lg text-gray-700 mb-6">
-              Welcome to Bella Vita, where authentic Italian traditions come alive in every dish. Founded in 1985 by the Rossi family, our restaurant has been a cornerstone of Italian hospitality, bringing the warmth and flavors of Italy to your table.
-            </p>
-            <div className="grid grid-cols-2 gap-6">
-              <div><p className="text-3xl font-bold text-red-600">40+</p><p className="text-gray-600">Years of Excellence</p></div>
-              <div><p className="text-3xl font-bold text-red-600">50k+</p><p className="text-gray-600">Happy Customers</p></div>
-              <div><p className="text-3xl font-bold text-red-600">15+</p><p className="text-gray-600">Culinary Awards</p></div>
-              <div><p className="text-3xl font-bold text-red-600">4.9</p><p className="text-gray-600">Average Rating</p></div>
-            </div>
-          </div>
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
-            alt="Chef cooking"
-            className="rounded-lg shadow"
-          />
-        </div>
-      </section>
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    {/* Text Content */}
+    <div>
+      <h2 className="text-4xl font-bold mb-6">Our Story</h2>
+      <p className="text-lg text-gray-700 mb-6">
+        Welcome to Bella Vita, where authentic Italian traditions come alive in every dish. Founded in 1985 by the Rossi family, our restaurant has been a cornerstone of Italian hospitality, bringing the warmth and flavors of Italy to your table.
+      </p>
 
-      {/* Reservation Form */}
-      <section id="reservations" className="px-6 py-20 max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-8">Make a Reservation</h2>
-        <form className="grid gap-6 bg-white shadow p-8 rounded-lg">
-          <input type="text" placeholder="Full Name *" className="border p-3 rounded w-full" />
-          <input type="email" placeholder="Email Address *" className="border p-3 rounded w-full" />
-          <input type="tel" placeholder="Phone Number" className="border p-3 rounded w-full" />
-          <input type="number" placeholder="Number of Guests *" className="border p-3 rounded w-full" />
-          <input type="date" className="border p-3 rounded w-full" />
-          <input type="time" className="border p-3 rounded w-full" />
-          <textarea placeholder="Special Requests" className="border p-3 rounded w-full" />
-          <button type="submit" className="px-6 py-3 bg-red-600 text-white rounded hover:bg-red-500">
-            Book Table
-          </button>
-        </form>
-      </section>
+      {/* Stats */}
+      <div className="grid grid-cols-2 gap-6">
+        <div>
+          <p className="text-3xl font-bold text-red-600">40+</p>
+          <p className="text-gray-600">Years of Excellence</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-red-600">50k+</p>
+          <p className="text-gray-600">Happy Customers</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-red-600">15+</p>
+          <p className="text-gray-600">Culinary Awards</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-red-600">4.9</p>
+          <p className="text-gray-600">Average Rating</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Image */}
+    <div className="relative ">
+      <img
+        src="https://i.pinimg.com/originals/d2/35/47/d2354797cfb995122e8bf0248cb1fd76.png"
+        alt="Chef cooking at Bella Vita"
+        className="rounded-xl shadow-xl  w-full max-h-[500px] object-contain bg-[rgb(165 167 164)]"
+      />
+      {/* Decorative border effect */}
+      <div className="absolute -top-4 -left-4 w-full h-full border-4 border-red-600 rounded-xl -z-10"></div>
+    </div>
+  </div>
+</section>
+
+
+ {/* Reservation Form */}
+<section
+  id="reservations"
+  className="relative bg-[url('https://scdn.aro.ie/Sites/50/imperialhotels2022/uploads/images/FullLengthImages/Large/SB12129735_Bedford_Hotel_Interior__Reception._4500x3000.jpg')] bg-cover bg-center py-20 px-4"
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/70"></div>
+
+  <div className="relative max-w-3xl mx-auto text-white">
+    <h2 className="text-4xl font-bold text-center mb-8">Make a Reservation</h2>
+    <form className="grid gap-6 bg-white/95 shadow-lg p-8 rounded-xl text-gray-800">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input
+          type="text"
+          placeholder="Full Name *"
+          className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email Address *"
+          className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+          required
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+        />
+        <input
+          type="number"
+          placeholder="Number of Guests *"
+          className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+          required
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input
+          type="date"
+          className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+          required
+        />
+        <input
+          type="time"
+          className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+          required
+        />
+      </div>
+
+      <textarea
+        placeholder="Special Requests"
+        className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full h-28"
+      />
+
+      <button
+        type="submit"
+        className="w-full py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500 transition duration-300"
+      >
+        Book Table
+      </button>
+    </form>
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section id="contact" className="bg-gray-50 px-6 py-20">
